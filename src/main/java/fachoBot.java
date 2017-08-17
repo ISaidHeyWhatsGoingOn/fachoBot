@@ -15,7 +15,7 @@ public class fachoBot extends TelegramLongPollingBot {
 
     ArrayList<String> fachoList = new ArrayList<String>();
     ArrayList<String> macriPhotos = new ArrayList<>();
-    File macriphotosdir = new File("https://github.com/ISaidHeyWhatsGoingOn/fachoBot/tree/master/src/main/resources/macriphotos");
+    File macriphotosdir = new File("src/main/resources/macriphotos");
     File[] macriphotos = macriphotosdir.listFiles();
 
 
@@ -112,19 +112,16 @@ public class fachoBot extends TelegramLongPollingBot {
         Random rand = new Random();
         File file = macriphotos[rand.nextInt(macriphotos.length)];
 
+
         SendPhoto photo = new SendPhoto()
                 .setChatId(update.getMessage().getChatId())
-                .setPhoto(file.toString());
-
-        SendMessage path = new SendMessage()
-                .setChatId((update.getMessage().getChatId()))
-                .setText(file.toString());
+                .setPhoto("https://raw.githubusercontent.com/ISaidHeyWhatsGoingOn/fachoBot/master/src/main/resources/macriphotos/" + file.getName());
 
 
         //Envia el mensaje
         try {
+
             sendPhoto(photo); // Call method to send the message
-            sendMessage(path);
         } catch (TelegramApiException e) {
             e.printStackTrace();
 
