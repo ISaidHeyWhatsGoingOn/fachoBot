@@ -15,7 +15,7 @@ public class fachoBot extends TelegramLongPollingBot {
 
     ArrayList<String> fachoList = new ArrayList<String>();
     ArrayList<String> macriPhotos = new ArrayList<>();
-    File macriphotosdir = new File("src/main/resources/macriphotos");
+    File macriphotosdir = new File("https://github.com/ISaidHeyWhatsGoingOn/fachoBot/tree/master/src/main/resources/macriphotos");
     File[] macriphotos = macriphotosdir.listFiles();
 
 
